@@ -15,3 +15,11 @@
 ; NOTES:
 ; Kinda weird not declaring the params in a vector,
 ; instead jumping straight to using them in the return statement
+
+; Anon fns with multiple parameters
+; % is equivalent to %1, counts up from there (%2, %3)
+(#(str %1 " and " %2) "beefy blocks" "whiskey lemonade")
+
+; Anon fns with rest paramenters
+; (Using the built-in identity function below)
+(#(identity %&) "Babycakes" "Steve" "Frank") ; ("Babycakes" "Steve" "Frank")
