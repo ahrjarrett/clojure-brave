@@ -1,0 +1,17 @@
+(map (fn [name] (str "Hi, " name))
+  ["Curt Cobain" "Tobias Funke"])
+
+(def my-special-multiplier (fn [n] (* n 3)))
+(my-special-multiplier 8) ; 24
+
+; Shorthand
+; Where #() signifies an anon fn, and % is the param
+(#(* % 3) 8) ; 24
+
+; Fn at top, rewritten:
+(map #("Hi, " %)
+  ["Curt Cobain" "Tobias Funke"])
+
+; NOTES:
+; Kinda weird not declaring the params in a vector,
+; instead jumping straight to using them in the return statement

@@ -6,5 +6,5 @@
                 "Here they are in case you need to cry over them: "
                 (clojure.string/join ", " unimportant-choices))))
 
-; don’t forget to put the params in a vector in this case:
+; don’t forget to put the params in a vector when they’ve been destructured:
 (chooser ["Gymnastics" "Olivetti Lettera 32" "beach balls"])
