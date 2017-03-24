@@ -2,9 +2,9 @@
   (:gen-class))
 
 (defn -main
-  "I don't do a whole lot ... yet."
   [& args]
-  (println "Hello, World!"))
+  (symmetrize-body-parts asym-hobbit-hoby-parts))
+  ;;(println "Hello, World!"))
 
 ; TASK: Make “symmetrical”
 (def asym-hobbit-hoby-parts [{:name "head" :size 3}
@@ -43,8 +43,7 @@
       (let [[part & remaining] remaining-asym-parts]
         (recur remaining
                (into final-body-parts
-                     (set [part (matching-body-part)])))))))
-
+                     (set [part (matching-part part)])))))))
 
 
 
