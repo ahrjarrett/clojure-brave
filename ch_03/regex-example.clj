@@ -4,3 +4,4 @@
    :size (:size part)})
 
 (matching-part {:name "left-eye" :size 1})
+; (matching-part {:name "head" :size 1})
