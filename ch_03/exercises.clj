@@ -51,6 +51,13 @@
 ;    (def dec9 (dec-maker 9))
 ;    (dec9 10)) ; => 1
 ;(defn dec-maker
+; BROKEN:
+(defn dec-maker
+  [n1 n2]
+  (- n1 n2))
+(def dec9 (dec-maker 9))
+(println (dec9 10))
+
 
 
 
