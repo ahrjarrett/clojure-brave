@@ -19,3 +19,4 @@
 ;     {:human 6.9, :critter 0.3}
 ;     {:human 5.0, :critter 1.1})
 ; Are the commas ^ necessary?
+; 03/29/17: No ^^^
