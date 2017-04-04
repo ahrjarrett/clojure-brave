@@ -52,19 +52,20 @@
 ;    (dec9 10)) ; => 1
 ;(defn dec-maker
 ; BROKEN:
-(defn dec-maker
-  [n1 n2]
-  (- n1 n2))
+(defn dec-maker [num]
+  #(- % num))
 (def dec9 (dec-maker 9))
 (println (dec9 10))
-
-
-
+; => 1
 
 
 
 ; EXERCISE 4: Write a function, mapset, that works like map,
 ;    except the return value is a set
+(defn mapset [f coll]
+  (set (map f coll)))
+(println (mapset #(+ % 1) [1 2 2 3]))
+; => #{4 3 2}
 
 
 
@@ -72,6 +73,7 @@
 ;    except that it has to work with weird space aliens with
 ;    radial symmetry. Instead of two eyes, arms, legs, and so on,
 ;    they have five
+
 
 
 
