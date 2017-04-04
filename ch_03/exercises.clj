@@ -1,7 +1,6 @@
 ; EXERCISE 1: Use the str, vector, list, hash-map & hash-set fns
 ;    NOTES: Notice that a set’s order does not matter,
 ;    just that the elements be unique.
-
 (def cool-str
   (str "No " "sleep " "till " "Brooklyn!"))
 (println cool-str)

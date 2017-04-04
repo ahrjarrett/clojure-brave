@@ -7,7 +7,7 @@
   ;;(println "Hello, World!"))
 
 ; TASK: Make “symmetrical”
-(def asym-hobbit-hoby-parts [{:name "head" :size 3}
+(def asym-hobbit-boby-parts [{:name "head" :size 3}
                              {:name "left-eye" :size 1}
                              {:name "left-ear" :size 1}
                              {:name "mouth" :size 1}

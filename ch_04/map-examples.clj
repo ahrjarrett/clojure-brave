@@ -20,3 +20,15 @@
 ;     {:human 5.0, :critter 1.1})
 ; Are the commas ^ necessary?
 ; 03/29/17: No ^^^
+
+(defn titleize [topic]
+  (str topic " for the Brave and True"))
+
+(map titleize ["Hamsters" "Ragnarok"])
+; =>
+
+;(map titleize '("Empathy" "Decorating"))
+
+;(map titleize #{"Elbows" "Soap Carving"})
+
+;(map #(titleize (second %)) {:uncomfortable-thing "Winking"}
