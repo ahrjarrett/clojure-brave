@@ -1,6 +1,9 @@
+;; p 69-70
+
 ; EXERCISE 1: Use the str, vector, list, hash-map & hash-set fns
 ;    NOTES: Notice that a set’s order does not matter,
 ;    just that the elements be unique.
+
 (def cool-str
   (str "No " "sleep " "till " "Brooklyn!"))
 (println cool-str)
@@ -36,13 +39,12 @@
 ; => #{doo-and-a-have shfourteen-teen doo}
 
 
-
 ; EXERCISE 2: Write a function that takes a number and adds 100 to it
+
 (defn add100
   [number]
   (+ number 100))
 (println (add100 10))
-
 
 
 ; EXERCISE 3: Write a function, dec-maker, that works exactly like
@@ -58,27 +60,29 @@
 ; => 1
 
 
-
 ; EXERCISE 4: Write a function, mapset, that works like map,
 ;    except the return value is a set
 (defn mapset [f coll]
   (set (map f coll)))
-(println (mapset #(+ % 1) [1 2 2 3]))
+(mapset #(+ % 1) [1 2 2 3])
 ; => #{4 3 2}
 
 
-
-; 5: Create a function that’s similar to symmetrize-body-parts
+; EXERCISE 5: Create a function that’s similar to symmetrize-body-parts
 ;    except that it has to work with weird space aliens with
 ;    radial symmetry. Instead of two eyes, arms, legs, and so on,
 ;    they have five
 
+(defn radialize-body-parts
+  [aradial-body-parts]
 
 
+  )
 
-; 6: Create a function that generalizes symmetrize-body-parts
+
+; EXERCISE 6: Create a function that generalizes symmetrize-body-parts
 ;    and the func- tion you created in Exercise 5. The new function
-;    should take a col- lection of body parts and the number of
+;    should take a collection of body parts and the number of
 ;    matching body parts to add.
 
 
