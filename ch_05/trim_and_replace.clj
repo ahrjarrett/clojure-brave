@@ -12,3 +12,11 @@
 ;; applied right-to-left:
 ((comp inc /) 3 4) ;; => 7/4
 
+
+;; From page 116, here's another way to write CLEAN using reduce
+;; to compose functions together (cool!)
+(defn string-clean
+  [text]
+  (reduce (fn [string string-fn] (string-fn string))
+          text
+          [s/trim #(s/replace % #"lollercopter" "LOLLERCOPTER")]))
