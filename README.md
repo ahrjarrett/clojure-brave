@@ -10,3 +10,4 @@ Working along with [Clojure for the Brave and True](http://www.braveclojure.com/
 - 03/29/17 - Page 70 (Exercise 3) & Page 80 of chapter 4
 - 04/04/17 - Page 95 of chapter 4
 - 04/04/17 - Page 108 of chapter 3 (About to Start “Peg Thing”)
+- 05/21/17 - Page 124 of Chapter 5, stuck on exercise 2

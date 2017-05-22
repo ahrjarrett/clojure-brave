@@ -22,13 +22,34 @@
 
 ;; 2. Implement the comp function.
 
+;; From Clojure docs on COMP:
+
+;; Takes a set of functions and returns a fn that is the composition
+;; of those fns. The returned fn takes a variable number of args,
+;; applies the rightmost of fns to the args, the next
+;; fn (right-to-left) to the result, etc.
+
+;;(defn my-comp
+;;  [& fs]
+;;  (fn [& args]
+;;    (reduce (fn [result-thus-far next-fn] (next-fn result-thus-far))
+;;            (apply (last fs) args)
+;;            (rest (reverse fns)))))
+
 (defn my-comp
-  []
-  )
+  [& fns]
+  (reduce (fn [f g]
+            #(f (apply g %&))) fns))
 
+(defn answer-2 [n]
+  ((my-comp inc inc) n))
 
+(answer-2 12) ;; 14
 
-
-
+;; 3. Implement the assoc-in function.
+;;(defn my-assoc-in
+;;  [m [k & ks] v]
+;;
+;;  )
 
 
