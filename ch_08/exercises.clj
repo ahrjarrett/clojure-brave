@@ -1,5 +1,17 @@
 ;; 1. Write the macro when-valid so that it behaves similarly to when.
 ;; Here is an example of calling it:
+(ns user.core)
+
+(def order-details
+  {:name "Andrew Jarrett"
+   :email "ahrjarrett@gmail.com"})
+
+(def order-details-validations
+  {:name ["Please enter a name" not-empty]
+   :email
+   ["Please enter an email address" not-empty
+    "Your email address doesn't look like an email address"
+    #(or (empty? %) (re-seq #"@" %))]})
 
 (defn error-messages-for
   "Return a seq of error messages"
@@ -104,71 +116,32 @@
 ;; (c-int, c-str, c-dex) to read an RPG character’s
 ;; attributes. Write a macro that defines an arbitrary
 ;; number of attribute-retrieving functions using one macro call.
-;; Here’s how you would call it:
 
-;(defattrs c-int :intelligence
-;  c-str :strength
-;  c-dex :dexterity)
-
-
-
-
-
-;; This is the solution provided (have not read yet 06/15/17):
 (def character
   {:name "Smooches McCutes"
    :attributes {:intelligence 10
                 :strength 4
                 :dexterity 5}})
 
-(defmacro defattrs
+(defmacro my-defattrs
   ([] nil)
-  ([fn-name attr]
-   `(def ~fn-name (comp ~attr :attributes))
-   )
-  ([fn-name attr & rest]
+  ([fn-name attribute]
+   `(def ~fn-name (comp ~attribute :attributes)))
+  ([fn-name attribute & rest]
    `(do
-      (defattrs ~fn-name ~attr)
-      (defattrs ~@rest))
-   )
-  )
+      (my-defattrs ~fn-name ~attribute)
+      (my-defattrs name ~@rest))))
 
-(macroexpand `(defattrs c-int :intelligence
-                c-str :strength
-                c-dex :dexterity))
-(defattrs c-int :intelligence
-  c-str :strength
-  c-dex :dexterity)
+;; Here are the old functions:
+;(def c-int (comp :intelligence :attributes))
+;(def c-str (comp :strength :attributes))
+;(def c-dex (comp :dexterity :attributes))
+
+(my-defattrs
+ c-int :intelligence
+ c-str :strength
+ c-dex :dexterity)
 
 (c-str character)
-
-
-(defattrs c-int :intelligence
-  c-str :strength
-  c-dex :dexterity)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+;; => 4
 
