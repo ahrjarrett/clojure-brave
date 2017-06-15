@@ -17,11 +17,22 @@ lucky-number ;; => 16
 (read-string "@new-var") ;; => (clojure.core/deref new-var)
 (read-string "; ignore!\n(+ 1 2)") ;; => (+ 1 2)
 
+;; using the "threading" or "stabby" macro:
+(defn read-resource
+  [path]
+  (-> path
+      clojure.java.io/resource
+      slurp
+      read-string))
 
+;; Macro for infix instead of prefix notation:
+(defmacro infix
+  [infixed]
+  (list (second infixed)
+        (first infixed)
+        (last infixed)))
 
-
-
-
-
-
+(infix (1 + 2)) ;; => 3
+;; For some reason this only works if I evaluate the entire buffer,
+;; rather than the single function eval that I usually do.
 
